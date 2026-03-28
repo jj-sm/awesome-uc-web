@@ -121,9 +121,6 @@ export async function fetchAllData(): Promise<AllData> {
     (f) => f.type === "blob" && f.path.endsWith(".json") && !f.path.startsWith("templates/")
   );
 
-  console.log("📂 All JSON files found:", jsonFiles.map(f => f.path));
-  console.log("📋 Docs files:", jsonFiles.filter(f => f.path.startsWith("docs/")).map(f => f.path));
-
   const data: AllData = {
     projects: { web: [], tools: [] },
     social: { comunidades: [], organizaciones: [], recreacion: [] },
@@ -201,8 +198,6 @@ export async function fetchAllData(): Promise<AllData> {
             _metadataDir: metadataDir,
           };
 
-          console.log(`📄 Docs item: ${path} → ${sub} → ${mappedSub}`, { name: item.name, slug });
-
           if (mappedSub === "plantillas") {
             data.docs.plantillas.push(item);
           } else {
@@ -213,12 +208,6 @@ export async function fetchAllData(): Promise<AllData> {
       }
     })
   );
-
-  console.log("✅ Data fetched:", {
-    projects: { web: data.projects.web.length, tools: data.projects.tools.length },
-    docs: { apuntes: data.docs.apuntes.length, plantillas: data.docs.plantillas.length },
-    social: { comunidades: data.social.comunidades.length, organizaciones: data.social.organizaciones.length, recreacion: data.social.recreacion.length },
-  });
 
   return data;
 }
