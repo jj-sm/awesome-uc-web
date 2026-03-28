@@ -1,6 +1,13 @@
 # Created by https://www.toptal.com/developers/gitignore/api/macos,linux,archlinuxpackages,windows,visualstudiocode,jetbrains,obsidian,sublimetext,astro,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,linux,archlinuxpackages,windows,visualstudiocode,jetbrains,obsidian,sublimetext,astro,node
 
+## Local
+IGNORE_*
+LOCAL_*
+
+bun.lock
+
+
 ### ArchLinuxPackages ###
 *.tar
 *.tar.*
